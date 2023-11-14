@@ -8,6 +8,7 @@ With features like:
 Below is a REST backend API for browsing theatres, shows, and timings based on a chosen date
 
 this api will give a list of theatres:
+
 http://localhost:8080/movie/ticket-booking/theatres
 
 http://localhost:8080/movie/ticket-booking/shows?date=2023-12-01T18:30:00&movieTitle=Inception
