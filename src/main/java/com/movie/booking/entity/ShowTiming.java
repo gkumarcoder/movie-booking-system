@@ -15,6 +15,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
+
 @Slf4j
 @Data
 @NoArgsConstructor
@@ -28,11 +29,11 @@ public class ShowTiming {
   private Long id;
 
   @ManyToOne
-  @JoinColumn(name = "movie_id", nullable = false)
+  @JoinColumn(name = "movieId", nullable = false)
   private Movie movie;
 
   @ManyToOne
-  @JoinColumn(name = "theatre_id", nullable = false)
+  @JoinColumn(name = "theatreId", nullable = false)
   private Theatre theatre;
 
   @Column(nullable = false)

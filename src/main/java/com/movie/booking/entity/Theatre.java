@@ -2,6 +2,7 @@ package com.movie.booking.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -29,7 +30,7 @@ public class Theatre {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "theatreId")
-  private Long id;
+  private Long theatreId;
 
   @Column(name = "name", nullable = false)
   private String name;
@@ -38,6 +39,7 @@ public class Theatre {
   private String location;
 
   @OneToMany(mappedBy = "theatre", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+  @JsonIgnore
   private Set<ShowTiming> showTimings = new HashSet<>();
 
 }

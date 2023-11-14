@@ -8,6 +8,7 @@ import com.movie.booking.repository.ShowTimingRepository;
 import com.movie.booking.repository.TheatreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.time.LocalDateTime;
 
 import java.util.List;
 
@@ -27,11 +28,11 @@ public class TheatreService {
     return theatreRepository.findAll();
   }
 
-  public List<ShowTiming> getShowTimings(String movieTitle, String date) {
+  public List<ShowTiming> getShowTimings(String movieTitle, LocalDateTime dateTime) {
     Movie movie = movieRepository.findByTitle(movieTitle);
     List<Theatre> theatres = theatreRepository.findAll();
 
-    return showTimingRepository.findByDateAndMovie(date, movie);
+    return showTimingRepository.findByTimingAndMovie(dateTime, movie);
   }
 }
 

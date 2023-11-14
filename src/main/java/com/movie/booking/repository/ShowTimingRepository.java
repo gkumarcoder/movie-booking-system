@@ -9,9 +9,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ShowTimingRepository extends JpaRepository<ShowTiming, Long> {
-
   List<ShowTiming> findByTimingAndMovie(LocalDateTime timing, Movie movie);
-
-  List<ShowTiming> findByDateAndMovie(String date, Movie movie);
-
 }
