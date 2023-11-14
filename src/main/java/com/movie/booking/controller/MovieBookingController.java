@@ -39,5 +39,6 @@ public class MovieBookingController {
     List<ShowTiming> shows = showTimingService.getShowTimings(chosenDate, movieTitle);
     return new ResponseEntity<>(shows, HttpStatus.OK);
   }
+
 }
 
