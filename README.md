@@ -18,3 +18,23 @@ Ensure you have the following software installed on your machine:
 
 - Java 17
 - Gradle 8.4
+
+## DB RECORD FOR TESTING
+-- Insert Movie
+INSERT INTO Movies (title, genre, director, release_date)
+VALUES ('Inception', 'Sci-Fi', 'Christopher Nolan', '2010-07-16');
+
+-- Insert Theatre
+INSERT INTO Theatre (name, location)
+VALUES ('Cityplex', 'Downtown');
+
+-- Insert ShowTiming
+INSERT INTO ShowTiming (movieid, theatreid, timing)
+VALUES (
+(SELECT movieId FROM Movies WHERE title = 'Inception'),
+(SELECT theatreId FROM Theatre WHERE name = 'Cityplex'),
+'2023-12-01T18:30:00'
+);
+
+
+
