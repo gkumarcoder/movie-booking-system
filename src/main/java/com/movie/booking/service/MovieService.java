@@ -12,6 +12,8 @@ public class MovieService {
 
   private final MovieRepository movieRepository;
 
+
+
   @Autowired
   public MovieService(MovieRepository movieRepository) {
     this.movieRepository = movieRepository;
@@ -24,6 +26,15 @@ public class MovieService {
   public Movie getMovieByTitle(String title) {
     return movieRepository.findByTitle(title);
   }
+
+  public void bookSeats(Long movieId, int numSeats) {
+    Movie movie = movieRepository.findById(movieId)
+        .orElseThrow(() -> new IllegalArgumentException("Movie not found"));
+
+    movie.bookSeats(numSeats);
+    movieRepository.save(movie);
+  }
+
 
 }
 

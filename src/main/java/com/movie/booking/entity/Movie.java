@@ -46,5 +46,11 @@ public class Movie {
   @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
   private Set<ShowTiming> showTimings = new HashSet<>();
 
+  public void bookSeats(int numSeats) {
+    if (numSeats <= 0) {
+      throw new IllegalArgumentException("Invalid number of seats");
+    }
+  }
+
 }
 
